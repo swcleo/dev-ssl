@@ -18,4 +18,11 @@ server.key (私密金鑰) (使用 PEM 格式) (無密碼保護)
 server.crt (憑證檔案) (使用 PEM 格式)
 server.pfx (PFX 檔案) (使用 PKCS#12 格式)
 
+Windows Server中所使用的pfx格式证书转成nginx可用的证书
+
+```sh
+openssl pkcs12 -in ./server.pfx -clcerts -nokeys -out ./nginx.crt
+openssl pkcs12 -in ./server.pfx -nocerts -nodes -out ./nginx.key
+```
+
 [ref]: https://blog.miniasp.com/post/2019/02/25/Creating-Self-signed-Certificate-using-OpenSSL "Creating-Self-signed-Certificate-using-OpenSSL"
